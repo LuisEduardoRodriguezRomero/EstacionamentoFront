@@ -31,16 +31,34 @@
       <td> 1 </td>
       <td>Fiat</td>
       <td>Ativo</td>
+      <td> <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+  <button type="button" class="btn btn-outline-primary">Excluir</button>
+  <button type="button" class="btn btn-outline-info">Editar</button>
+  <button type="button" class="btn btn-outline-danger">Ver</button>
+</div>
+</td>
     </tr>
     <tr>
       <td> 2</td>
       <td>Ford</td>
       <td>Ativo</td>
+      <td> <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+  <button type="button" class="btn btn-outline-primary">Excluir</button>
+  <button type="button" class="btn btn-outline-info">Editar</button>
+  <button type="button" class="btn btn-outline-danger">Ver</button>
+</div>
+</td>
     </tr>
     <tr>
       <td > 3</td>
       <td>Hyundai</td>
       <td>Ativo</td>
+      <td> <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+  <button type="button" class="btn btn-outline-primary">Excluir</button>
+  <button type="button" class="btn btn-outline-info">Editar</button>
+  <button type="button" class="btn btn-outline-danger">Ver</button>
+</div>
+</td>
     </tr>
   </tbody>
 </table>

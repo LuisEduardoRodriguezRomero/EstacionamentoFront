@@ -36,7 +36,7 @@
       <td> <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
   <button type="button" class="btn btn-outline-primary">Excluir</button>
   <button type="button" class="btn btn-outline-info">Editar</button>
-  <button type="button" class="btn btn-outline-primary">Right</button>
+  <button type="button" class="btn btn-outline-danger">Ver</button>
 </div>
 </td>
     </tr>
@@ -45,12 +45,24 @@
       <td>Mobi</td>
       <td>Fiat</td>
       <td>Inativo</td>
+      <td> <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+  <button type="button" class="btn btn-outline-primary">Excluir</button>
+  <button type="button" class="btn btn-outline-info">Editar</button>
+  <button type="button" class="btn btn-outline-danger">Ver</button>
+</div>
+</td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td >HB20</td>
       <td>Hyundai</td>
       <td>Ativo</td>
+      <td> <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+  <button type="button" class="btn btn-outline-primary">Excluir</button>
+  <button type="button" class="btn btn-outline-info">Editar</button>
+  <button type="button" class="btn btn-outline-danger">Ver</button>
+</div>
+</td>
     </tr>
   </tbody>
 </table>

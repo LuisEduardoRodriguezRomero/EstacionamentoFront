@@ -33,18 +33,36 @@
       <td>Condutor 1 </td>
       <td>(##) #########</td>
       <td>Inativo</td>
+      <td> <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+  <button type="button" class="btn btn-outline-primary">Excluir</button>
+  <button type="button" class="btn btn-outline-info">Editar</button>
+  <button type="button" class="btn btn-outline-danger">Ver</button>
+</div>
+</td>
     </tr>
     <tr>
       <th scope="row">###.###.###-##</th>
       <td>Condutor 2</td>
       <td>(##) #########</td>
       <td>Ativo</td>
+      <td> <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+  <button type="button" class="btn btn-outline-primary">Excluir</button>
+  <button type="button" class="btn btn-outline-info">Editar</button>
+  <button type="button" class="btn btn-outline-danger">Ver</button>
+</div>
+</td>
     </tr>
     <tr>
       <th scope="row">###.###.###-##</th>
       <td >Condutor 3</td>
       <td>(##) #########</td>
       <td>Ativo</td>
+      <td> <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+  <button type="button" class="btn btn-outline-primary">Excluir</button>
+  <button type="button" class="btn btn-outline-info">Editar</button>
+  <button type="button" class="btn btn-outline-danger">Ver</button>
+</div>
+</td>
     </tr>
   </tbody>
 </table>
