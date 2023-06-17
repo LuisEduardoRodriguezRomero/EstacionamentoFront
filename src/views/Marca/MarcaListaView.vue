@@ -3,35 +3,48 @@
 </script>
 
 <template>
-    <table class="table">
+      <div class="container text-center">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-2">
+      <button type="button" class="btn btn-outline-info" >Listar</button>
+    </div>
+    <div class="col-md-auto">
+     Marcas
+    </div>
+    <div class="col col-lg-2">
+    <button type="button" class="btn btn-outline-primary" ative>Cadastrar</button>
+    </div>
+  </div>
+</div>
+
+<table class="table table-hover table-bordered border border-info-subtle">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Id</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Status</th>
+      <th scope="col">Opcoes</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="table-group-divider">
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td> 1 </td>
+      <td>Fiat</td>
+      <td>Ativo</td>
     </tr>
     <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+      <td> 2</td>
+      <td>Ford</td>
+      <td>Ativo</td>
     </tr>
     <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+      <td > 3</td>
+      <td>Hyundai</td>
+      <td>Ativo</td>
     </tr>
   </tbody>
 </table>
+
 </template>
 
 <style scoped>

@@ -6,24 +6,25 @@
       <div class="container text-center">
   <div class="row justify-content-md-center">
     <div class="col col-lg-2">
-      Listar
+      <button type="button" class="btn btn-outline-info" >Listar</button>
     </div>
     <div class="col-md-auto">
      Veiculos
     </div>
     <div class="col col-lg-2">
-    Cadastrar
+    <button type="button" class="btn btn-outline-primary" ative>Cadastrar</button>
     </div>
   </div>
 </div>
 
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered border border-info-subtle">
   <thead>
     <tr>
       <th scope="col">Placa</th>
       <th scope="col">Condutor</th>
       <th scope="col">Modelo</th>
       <th scope="col">Cor</th>
+      <th scope="col">Opcoes</th>
     </tr>
   </thead>
   <tbody class="table-group-divider">
