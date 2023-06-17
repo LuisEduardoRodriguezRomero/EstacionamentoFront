@@ -2,7 +2,12 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link to="/listar-marca">Marcas</router-link>
+    <router-link to="/listar-marcas">Marcas</router-link> |
+    <router-link to="/listar-condutores">Condutores</router-link> |
+    <router-link to="/listar-configuracoes">Configuracoes</router-link>  |
+    <router-link to="/listar-modelos">Modelos</router-link>  |
+    <router-link to="/listar-movimentacoes">Movimentacoes</router-link>  |
+    <router-link to ="/listar-veiculos">Veiculos</router-link>
   </nav>
   <router-view/>
 </template>
