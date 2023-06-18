@@ -1,41 +1,42 @@
 <template>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Estacionamento</a>
+<nav class="navbar navbar-expand-lg bg-gray-700 text-light">
+  <div class="container-fluid mb-0">
+      <i class="bi bi-car-front-fill"> Estacionamento</i>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse  justify-content-center" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-         <router-link   class="nav-link active" to="/">Home</router-link> 
+         <router-link   class="nav-link active" to="/"><i class="bi bi-house-door text-light"> Home</i></router-link> 
         </li>
         <li class="nav-item">
-        <router-link class="nav-link" to="/about">About</router-link>
+        <router-link class="nav-link text-light" to="/about">About</router-link>
         </li>
         <li class="nav-item">
-           <router-link class="nav-link" to="/listar-marcas">Marcas</router-link>
-        </li>
-       
-        <li class="nav-item">
-         <router-link class="nav-link" to="/listar-condutores">Condutores</router-link> 
-        </li>
-      
-        <li class="nav-item">
-          <router-link class="nav-link" to="/listar-configuracoes">Configuracoes</router-link>  
-        </li>
-     
-        <li class="nav-item">
-          <router-link class="nav-link" to="/listar-modelos">Modelos</router-link>  
-        </li>
-       
-        <li class="nav-item">
-         <router-link class="nav-link" to="/listar-movimentacoes">Movimentacoes</router-link>  
+           <router-link class="nav-link" to="/listar-marcas"><i class="bi bi-shield text-light"> Marcas</i></router-link>
         </li>
 
         <li class="nav-item">
-         <router-link class="nav-link" to ="/listar-veiculos">Veiculos</router-link>
+          <router-link class="nav-link" to="/listar-modelos"><i class="bi bi-shield text-light"> Modelos</i></router-link>  
         </li>
+
+        <li class="nav-item">
+         <router-link class="nav-link" to ="/listar-veiculos"><i class="bi bi-car-front text-light"> Veiculos</i></router-link>
+        </li>
+       
+        <li class="nav-item">
+         <router-link class="nav-link" to="/listar-condutores"><i class="bi bi-people text-light"> Condutores</i></router-link> 
+        </li>
+
+         <li class="nav-item">
+         <router-link class="nav-link" to="/listar-movimentacoes"><i class="bi bi-alarm text-light"> Movimentacoes</i></router-link>  
+        </li>
+      
+        <li class="nav-item">
+          <router-link class="nav-link" to="/listar-configuracoes"> <i class="bi bi-gear text-light"> Configuracoes</i></router-link>  
+        </li>
+       
         
       </ul>
     </div>
@@ -51,6 +52,9 @@ $enable-shadows: true;
 $prefix: "mo-";
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+@import "../node_modules/bootstrap/scss/_variables.scss";
+
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -58,18 +62,11 @@ $prefix: "mo-";
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #000000;
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+ .bg-gray-700 {
+      background-color: $gray-700;
     }
-  }
-}
+
 </style>
