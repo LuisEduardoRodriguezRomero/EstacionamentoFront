@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar navbar-expand-lg bg-gray-700 text-light">
+<nav class="navbar navbar-expand-lg bg-gray-700 text-light ">
   <div class="container-fluid mb-0">
       <i class="bi bi-car-front-fill"> Estacionamento</i>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
         </li>
       
         <li class="nav-item">
-          <router-link class="nav-link" to="/listar-configuracoes"> <i class="bi bi-gear text-light"> Configuracoes</i></router-link>  
+          <router-link class="nav-link" to="/listar-configuracoes"> <i class="bi bi-gear text-light:hover"> Configuracoes</i></router-link>  
         </li>
        
         
@@ -54,6 +54,7 @@ $prefix: "mo-";
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 @import "../node_modules/bootstrap/scss/_variables.scss";
+@import "../node_modules/bootstrap/scss/_navbar.scss";
 
 
 #app {
@@ -63,10 +64,16 @@ $prefix: "mo-";
   text-align: center;
   color: #2c3e50;
   background-color: #000000;
+  height:100vh;
 }
 
  .bg-gray-700 {
       background-color: $gray-700;
     }
+
+    .navbar-nav .nav-link:hover {
+    background-color: $gray-400; 
+  }
+
 
 </style>
