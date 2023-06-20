@@ -21,7 +21,7 @@
 
 <div class="row">
   <div class="col-sm-10 offset-sm-1">
-    <table class="table table-hover table-bordered border border-info-subtle table-sm ">
+    <table class="table table-hover table-dark border border-info table-sm  ">
   <thead class="text-sm">
     <tr>
       <th scope="col" >ID</th>

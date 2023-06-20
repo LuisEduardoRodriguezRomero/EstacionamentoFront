@@ -14,15 +14,19 @@ export class MarcaClient{
     public async findById(id : number) : Promise<Marca> {
         try{
             return (await this.axiosClient.get<Marca>(`/marca?id=${id}`)).data;
+
         }
         catch(error : any){
             return Promise.reject(error.response);
         }
     }
 
-    public async findAll() : Promise<Marca[]> {
+    public async findAllMarcas() : Promise<Marca[]> {
         try{
-            return (await this.axiosClient.get<Marca[]>(`/marca/lista`)).data;
+            const response = await this.axiosClient.get<Marca[]>(`/marca/lista`);
+           const data = response.data;
+           console.log(data)
+           return data;
         }
         catch(error : any){
             return Promise.reject(error.response);

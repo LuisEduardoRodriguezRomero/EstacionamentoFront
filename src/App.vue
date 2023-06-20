@@ -34,7 +34,7 @@
         </li>
       
         <li class="nav-item">
-          <router-link class="nav-link" to="/listar-configuracoes"> <i class="bi bi-gear text-light:hover"> Configuracoes</i></router-link>  
+          <router-link class="nav-link" to="/listar-configuracoes"> <i class="bi bi-gear text-light"> Configuracoes</i></router-link>  
         </li>
        
         
@@ -72,7 +72,8 @@ $prefix: "mo-";
     }
 
     .navbar-nav .nav-link:hover {
-    background-color: $gray-400; 
+    background-color: $gray-600; 
+    border-radius:10px;
   }
 
 

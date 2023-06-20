@@ -1,4 +1,14 @@
 <script lang="ts">
+import { MarcaClient } from "@/client/MarcaClient";
+
+const btnListarMarcas = document.getElementById('btnListMarcas');
+MarcaClient.
+
+if (btnListarMarcas) {
+ btnListarMarcas.addEventListener('click', MarcaClient.f);
+}
+
+
 
 </script>
 
@@ -6,7 +16,7 @@
       <div class="container text-center mb-5 mt-5">
   <div class="row justify-content-md-center">
     <div class="col col-lg-2">
-      <button type="button" class="btn btn-outline-info" >Listar</button>
+      <button type="button" class="btn btn-outline-info" id="btnListMarcas" >Listar</button>
     </div>
     <div class="col-md-auto">
      Veiculos
@@ -21,7 +31,7 @@
 
 <div class="row">
   <div class="col-sm-10 offset-sm-1">
-    <table class="table table-hover table-bordered border border-info-subtle table-sm ">
+    <table class="table table-hover table-dark border border-info table-sm  ">
   <thead class="text-sm">
     <tr>
       <th scope="col" >ID</th>
