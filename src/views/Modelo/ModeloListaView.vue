@@ -12,7 +12,7 @@
      Modelos
     </div>
     <div class="col col-lg-2">
-    <button type="button" class="btn btn-outline-primary" ative>Cadastrar</button>
+    <router-link class="nav-link" to="/cadastrar-modelo"><button type="button" class="btn btn-outline-primary" ative>Cadastrar</button></router-link>
     </div>
   </div>
 </div>

@@ -1,13 +1,4 @@
 <script lang="ts">
-import { MarcaClient } from "@/client/MarcaClient";
-
-const btnListarMarcas = document.getElementById('btnListMarcas');
-MarcaClient.
-
-if (btnListarMarcas) {
- btnListarMarcas.addEventListener('click', MarcaClient.f);
-}
-
 
 
 </script>
@@ -19,10 +10,10 @@ if (btnListarMarcas) {
       <button type="button" class="btn btn-outline-info" id="btnListMarcas" >Listar</button>
     </div>
     <div class="col-md-auto">
-     Veiculos
+     Marcas
     </div>
     <div class="col col-lg-2">
-    <button type="button" class="btn btn-outline-primary" ative>Cadastrar</button>
+    <router-link class="nav-link" to="/cadastrar-marca"><button type="button" class="btn btn-outline-primary" ative>Cadastrar</button></router-link>
     </div>
   </div>
 </div>

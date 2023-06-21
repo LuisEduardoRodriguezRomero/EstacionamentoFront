@@ -8,9 +8,7 @@
       </div>
       <div class="col-md-auto fs-3 text-light">Movimentacoes</div>
       <div class="col col-lg-3">
-        <button type="button" class="btn btn-outline-success" ative>
-          Registrar Entrada
-        </button>
+        <router-link class="nav-link" to="/cadastrar-movimentacao"><button type="button" class="btn btn-outline-success" ative>Registrar Entrada</button></router-link>
       </div>
     </div>
   </div>

@@ -7,12 +7,7 @@
     </button>
     <div class="collapse navbar-collapse  justify-content-center" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item">
-         <router-link   class="nav-link active" to="/"><i class="bi bi-house-door text-light"> Home</i></router-link> 
-        </li>
-        <li class="nav-item">
-        <router-link class="nav-link text-light" to="/about">About</router-link>
-        </li>
+        
         <li class="nav-item">
            <router-link class="nav-link" to="/listar-marcas"><i class="bi bi-shield text-light"> Marcas</i></router-link>
         </li>

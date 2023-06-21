@@ -13,7 +13,7 @@
      Veiculos
     </div>
     <div class="col col-lg-2">
-    <button type="button" class="btn btn-outline-primary" ative>Cadastrar</button>
+    <router-link class="nav-link" to="/cadastrar-veiculo"><button type="button" class="btn btn-outline-primary" ative>Cadastrar</button></router-link>
     </div>
   </div>
 </div>
@@ -29,6 +29,7 @@
       <th scope="col">Condutor</th>
       <th scope="col">Modelo</th>
       <th scope="col">Cor</th>
+      <th scope="col">Status</th>
       <th scope="col">Opcoes</th>
     </tr>
   </thead>
@@ -38,6 +39,7 @@
       <td>Condutor 1 </td>
       <td>Mobi</td>
       <td>Azul</td>
+      <td>Ativo</td>
      <td> 
       <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
   <button type="button" class="btn btn-outline-primary">Excluir</button>
@@ -51,6 +53,7 @@
       <td>Condutor 2</td>
       <td>Ka</td>
       <td>Preto</td>
+      <td>Ativo</td>
       <td> 
       <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
   <button type="button" class="btn btn-outline-primary">Excluir</button>
@@ -64,6 +67,7 @@
       <td >Condutor 3</td>
       <td>HB20</td>
       <td>Verde</td>
+      <td>Ativo</td>
       <td> 
       <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
   <button type="button" class="btn btn-outline-primary">Excluir</button>
