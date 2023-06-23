@@ -3,7 +3,7 @@
   <div class="container" style="background: ;">
 
     <div class="row">
-      <div class="col-md-10 text-start"> <p class="fs-3"> Cadastrar de Marca </p> </div>
+      <div class="col-md-10 text-start"> <p class="fs-3"> Editar de Marca </p> </div>
       <div class="col-md-2"> </div>
     </div>
 
@@ -33,13 +33,6 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12 text-start">
-        <label class="form-label">Data cadastro *</label>
-        <input type="date" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="marca.cadastro">
-      </div>
-    </div>
-
-    <div class="row">
       <div class="col-md-3 offset-md-6"> 
         <div class="d-grid gap-2">
           <router-link type="button" class="btn btn-info" 
@@ -55,7 +48,7 @@
           </button>
           <button v-if="this.form === 'editar'" type="button" 
               class="btn btn-warning" @click="onClickEditar()">
-            Editar Marca
+            Editar 
           </button>
           <button v-if="this.form === 'excluir'" type="button" 
               class="btn btn-danger" @click="onClickExcluir()">

@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { Configuracao } from "@/model/configuracao";
+import { Configuracao } from "@/model/ConfiguracaoModel";
 
 export class ConfiguracaoClient{
     private axiosClient : AxiosInstance;

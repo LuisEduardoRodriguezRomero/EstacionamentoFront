@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import HomeView from "../views/HomeView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,72 +10,48 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/about",
     name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
-    path: "/listar-marcas",
-    name: "listar-marcas",
-    component: () => import("../views/Marca/MarcaListaView.vue"),
+    path: "/marca/lista",
+    name: "marca-lista-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Marca/MarcaListaView.vue"
+      ),
   },
   {
-    path: "/listar-condutores",
-    name: "listar-condutores",
-    component: () => import("../views/Condutor/CondutorListaView.vue"),
-  },
-  {
-    path: "/listar-configuracoes",
-    name: "listar-configuracoes",
-    component: () => import("../views/Configuracao/ConfiguracaoListaView.vue"),
-  },
-  {
-    path: "/listar-modelos",
-    name: "listar-modelos",
-    component: () => import("../views/Modelo/ModeloListaView.vue"),
-  },
-  {
-    path: "/listar-movimentacoes",
-    name: "listar-movimentacoes",
-    component: () => import("../views/Movimentacao/MovimentacaoListaView.vue"),
-  },
-  {
-    path: "/listar-veiculos",
-    name: "listar-veiculos",
-    component: () => import("../views/Veiculo/VeiculoListaView.vue"),
-  },
-  {
-    path: "/cadastrar-marca",
-    name: "cadastrar-marca",
-    component: () => import("../views/Marca/MarcaCadastroView.vue"),
-  },
-  {
-    path: "/cadastrar-condutor",
-    name: "cadastrar-condutor",
-    component: () => import("../views/Condutor/CondutorCadastroView.vue"),
-  },
-  {
-    path: "/cadastrar-modelo",
-    name: "cadastrar-modelo",
-    component: () => import("../views/Modelo/ModeloCadastroView.vue"),
-  },
-  {
-    path: "/cadastrar-veiculo",
-    name: "cadastrar-veiculo",
-    component: () => import("../views/Veiculo/VeiculoCadastroView.vue"),
-  },
-  {
-    path: "/cadastrar-movimentacao",
-    name: "cadastrar-movimentacao",
-    component: () => import("../views/Movimentacao/MovimentacaoCadastroView.vue"),
+    path: "/marca/formulario",
+    name: "marca-formulario-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Marca/MarcaCadastroView.vue"
+      ),
+    children: [
+      {
+        path: "/marca/formulario/editar",
+        name: "marca-formulario-editar-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Marca/MarcaEditarView.vue"
+          ),
+      },
+      {
+        path: "/marca/formulario",
+        name: "marca-formulario-excluir-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Marca/MarcaCadastroView.vue"
+          ),
+      },
+    ],
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

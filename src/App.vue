@@ -9,7 +9,7 @@
       <ul class="navbar-nav">
         
         <li class="nav-item">
-           <router-link class="nav-link" to="/listar-marcas"><i class="bi bi-shield text-light"> Marcas</i></router-link>
+           <router-link class="nav-link" to="/marca/lista"><i class="bi bi-shield text-light"> Marcas</i></router-link>
         </li>
 
         <li class="nav-item">
@@ -58,7 +58,7 @@ $prefix: "mo-";
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: #000000;
+
   height:100vh;
 }
 
