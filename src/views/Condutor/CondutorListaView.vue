@@ -1,84 +1,97 @@
 <script lang="ts">
 
+import { defineComponent } from 'vue';
+
+import CondutorClient from '@/client/CondutorClient';
+import { CondutorModel } from '@/model/CondutorModel';
+
+export default defineComponent({
+  name: 'CondutorLista',
+  data() {
+    return {
+        condutoresList: new Array<CondutorModel>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+
+    findAll() {
+    CondutorClient.findAllCondutores()
+        .then(sucess => {
+          this.condutoresList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+});
+
 </script>
 
 <template>
-      <div class="container text-center mb-5 mt-5">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <button type="button" class="btn btn-outline-info" >Listar</button>
-    </div>
-    <div class="col-md-auto">
-     Condutores
 
+  <div class="container" style="margin-top: 10px;">
+
+    <div class="row">
+      <div class="col-md-10 text-start"> <p class="fs-3"> Lista de Condutores </p> </div>
+      <div class="col-md-2"> 
+        <div class="d-grid gap-2">
+          <router-link type="button" class="btn btn-success" 
+            to="/condutor/formulario">Cadastrar
+          </router-link>
+        </div>
+      </div>
     </div>
-    <div class="col col-lg-2">
-    <router-link class="nav-link" to="/cadastrar-condutor"><button type="button" class="btn btn-outline-primary" ative>Cadastrar</button></router-link>
+
+    <div class="row">
+      <div class="col-md-12">  
+        <table class="table">
+          <thead class="table-secondary" >
+            <tr>
+              <th scope="col">CPF</th>
+              <th scope="col">Ativo</th>
+              <th scope="col" class="text-start">Nome</th>
+              <th scope="col">Telefone</th>
+              <th scope="col">Opção</th>
+            </tr>
+          </thead>  
+          <tbody class="table-group-divider">
+            
+            <tr v-for="item in condutoresList" :key="item.id">
+              <th class="col-md-1">{{ item.id }}</th>
+              <th class="col-md-2"> 
+                <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
+                <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
+              </th>
+              <th class="text-start">{{ item.nome }}</th>
+              <th class="text-start">{{ item.Telefone }}</th>
+              <th class="col-md-2">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                  <router-link type="button" class="btn btn-sm btn-warning" 
+                      :to="{ name: 'condutor-formulario-editar-view', query: { id: item.id, form: 'editar' } } "> 
+                    Editar 
+                  </router-link>
+                  <router-link type="button" class="btn btn-sm btn-danger" 
+                      :to="{ name: 'condutor-formulario-excluir-view', query: { id: item.id, form: 'excluir' } } ">
+                    Excluir
+                  </router-link>
+                </div>
+              </th>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-<div class="row">
-  <div class="col-sm-10 offset-sm-1">
-    <table class="table table-hover table-dark border border-info table-sm">
-  <thead class="text-sm">
-    <tr>
-      <th scope="col" >CPF</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Telefone</th>
-      <th scope="col">Status</th>
-      <th scope="col">Opcoes</th>
-    </tr>
-  </thead>
-  <tbody class="table-group-divider">
-    <tr class="table-row">
-      <th scope="row">###.###.###-##</th>
-      <td>Condutor 1 </td>
-      <td>(##) #########</td>
-      <td>Ativo</td>
-     <td> 
-      <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-  <button type="button" class="btn btn-outline-primary">Excluir</button>
-  <button type="button" class="btn btn-outline-info">Editar</button>
-  <button type="button" class="btn btn-outline-danger">Ver</button>
-</div>
-</td>
-    </tr>
-    <tr>
-      <th scope="row">###.###.###-##</th>
-      <td>Condutor 2</td>
-      <td>(##) #########</td>
-      <td>Ativo</td>
-      <td> 
-      <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-  <button type="button" class="btn btn-outline-primary">Excluir</button>
-  <button type="button" class="btn btn-outline-info">Editar</button>
-  <button type="button" class="btn btn-outline-danger">Ver</button>
-</div>
-</td>
-    </tr>
-    <tr>
-      <th scope="row">###.###.###-##</th>
-      <td >Condutor 3</td>
-      <td>(##) #########</td>
-      <td>Ativo</td>
-      <td> 
-      <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-  <button type="button" class="btn btn-outline-primary">Excluir</button>
-  <button type="button" class="btn btn-outline-info">Editar</button>
-  <button type="button" class="btn btn-outline-danger">Ver</button>
-</div>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-    </div>
-  </div>
-</div>
 </template>
 
 <style scoped>
-
+.table-row{
+padding: 0.1rem;
+}
 </style>

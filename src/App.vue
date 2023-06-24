@@ -13,15 +13,15 @@
         </li>
 
         <li class="nav-item">
-          <router-link class="nav-link" to="/listar-modelos"><i class="bi bi-shield text-light"> Modelos</i></router-link>  
+          <router-link class="nav-link" to="/modelo/lista"><i class="bi bi-shield text-light"> Modelos</i></router-link>  
         </li>
 
         <li class="nav-item">
-         <router-link class="nav-link" to ="/listar-veiculos"><i class="bi bi-car-front text-light"> Veiculos</i></router-link>
+         <router-link class="nav-link" to ="/veiculo/lista"><i class="bi bi-car-front text-light"> Veiculos</i></router-link>
         </li>
        
         <li class="nav-item">
-         <router-link class="nav-link" to="/listar-condutores"><i class="bi bi-people text-light"> Condutores</i></router-link> 
+         <router-link class="nav-link" to="/condutor/lista"><i class="bi bi-people text-light"> Condutores</i></router-link> 
         </li>
 
          <li class="nav-item">

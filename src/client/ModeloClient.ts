@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { Modelo } from "@/model/ModeloModel";
+import { ModeloModel } from "@/model/ModeloModel";
 
 export class ModeloClient {
   private axiosClient: AxiosInstance;
@@ -11,31 +11,34 @@ export class ModeloClient {
     });
   }
 
-  public async findById(id: number): Promise<Modelo> {
+  public async findById(id: number): Promise<ModeloModel> {
     try {
-      return (await this.axiosClient.get<Modelo>(`/modelo?id=${id}`)).data;
+      return (await this.axiosClient.get<ModeloModel>(`/modelo?id=${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async findAll(): Promise<Modelo[]> {
+  public async findAllModelos(): Promise<ModeloModel[]> {
     try {
-      return (await this.axiosClient.get<Modelo[]>(`/modelo/lista`)).data;
+      const response = await this.axiosClient.get<ModeloModel[]>(`/modelo`);
+      const data = response.data;
+      console.log(data);
+      return data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async findAtivo(): Promise<Modelo[]> {
+  public async findAtivo(): Promise<ModeloModel[]> {
     try {
-      return (await this.axiosClient.get<Modelo[]>(`/modelo/ativos`)).data;
+      return (await this.axiosClient.get<ModeloModel[]>(`/modelo/ativos`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async cadastrar(modelo: Modelo): Promise<void> {
+  public async cadastrar(modelo: ModeloModel): Promise<void> {
     try {
       return (await this.axiosClient.post(`/modelo`, modelo)).data;
     } catch (error: any) {
@@ -43,7 +46,7 @@ export class ModeloClient {
     }
   }
 
-  public async editar(id: number, modelo: Modelo): Promise<void> {
+  public async editar(id: number, modelo: ModeloModel): Promise<void> {
     try {
       return (await this.axiosClient.put(`/modelo?id=${id}`, modelo)).data;
     } catch (error: any) {
@@ -59,3 +62,5 @@ export class ModeloClient {
     }
   }
 }
+
+export default new ModeloClient();

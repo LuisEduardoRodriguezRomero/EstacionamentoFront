@@ -1,82 +1,93 @@
 <script lang="ts">
 
+import { defineComponent } from 'vue';
+
+import ModeloClient from '@/client/ModeloClient';
+import { ModeloModel } from '@/model/ModeloModel';
+
+export default defineComponent({
+  name: 'ModeloLista',
+  data() {
+    return {
+        modelosList: new Array<ModeloModel>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+
+    findAll() {
+    ModeloClient.findAllModelos()
+        .then(sucess => {
+          this.modelosList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+});
+
 </script>
 
 <template>
-      <div class="container text-center mb-5 mt-5">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <button type="button" class="btn btn-outline-info" >Listar</button>
+
+  <div class="container" style="margin-top: 10px;">
+
+    <div class="row">
+      <div class="col-md-10 text-start"> <p class="fs-3"> Lista de Modelos </p> </div>
+      <div class="col-md-2"> 
+        <div class="d-grid gap-2">
+          <router-link type="button" class="btn btn-success" 
+            to="/modelo/formulario">Cadastrar
+          </router-link>
+        </div>
+      </div>
     </div>
-    <div class="col-md-auto">
-     Modelos
-    </div>
-    <div class="col col-lg-2">
-    <router-link class="nav-link" to="/cadastrar-modelo"><button type="button" class="btn btn-outline-primary" ative>Cadastrar</button></router-link>
+
+    <div class="row">
+      <div class="col-md-12">  
+        <table class="table">
+          <thead class="table-secondary" >
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Ativo</th>
+              <th scope="col" class="text-start">Modelo</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Opção</th>
+            </tr>
+          </thead>  
+          <tbody class="table-group-divider">
+            
+            <tr v-for="item in modelosList" :key="item.id">
+              <th class="col-md-1">{{ item.id }}</th>
+              <th class="col-md-2"> 
+                <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
+                <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
+              </th>
+              <th class="text-start">{{ item.nome }}</th>
+              <th class="text-start">{{ item.marca.nome }}</th>
+              <th class="col-md-2">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                  <router-link type="button" class="btn btn-sm btn-warning" 
+                      :to="{ name: 'modelo-formulario-editar-view', query: { id: item.id, form: 'editar' } } "> 
+                    Editar 
+                  </router-link>
+                  <router-link type="button" class="btn btn-sm btn-danger" 
+                      :to="{ name: 'modelo-formulario-excluir-view', query: { id: item.id, form: 'excluir' } } ">
+                    Excluir
+                  </router-link>
+                </div>
+              </th>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-
-<div class="row">
-  <div class="col-sm-10 offset-sm-1">
-    <table class="table table-hover table-dark border border-info table-sm  ">
-  <thead class="text-sm">
-    <tr>
-      <th scope="col" >ID</th>
-      <th scope="col">Modelo</th>
-      <th scope="col">Marca</th>
-      <th scope="col">Status</th>
-      <th scope="col">Opcoes</th>
-    </tr>
-  </thead>
-  <tbody class="table-group-divider">
-    <tr class="table-row">
-      <th scope="row">1</th>
-      <td>Mobi </td>
-      <td>Fiat</td>
-      <td>Ativo</td>
-     <td> 
-      <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-  <button type="button" class="btn btn-outline-primary">Excluir</button>
-  <button type="button" class="btn btn-outline-info">Editar</button>
-  <button type="button" class="btn btn-outline-danger">Ver</button>
-</div>
-</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>HB20</td>
-      <td>Hyundai</td>
-      <td>Ativo</td>
-      <td> 
-      <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-  <button type="button" class="btn btn-outline-primary">Excluir</button>
-  <button type="button" class="btn btn-outline-info">Editar</button>
-  <button type="button" class="btn btn-outline-danger">Ver</button>
-</div>
-</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td >KA</td>
-      <td>Ford</td>
-      <td>Ativo</td>
-      <td> 
-      <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-  <button type="button" class="btn btn-outline-primary">Excluir</button>
-  <button type="button" class="btn btn-outline-info">Editar</button>
-  <button type="button" class="btn btn-outline-danger">Ver</button>
-</div>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-    </div>
-  </div>
-</div>
 </template>
 
 <style scoped>

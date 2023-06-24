@@ -25,6 +25,9 @@
         <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="marca.id">
       </div>
     </div>
+
+
+
     <div class="row">
       <div class="col-md-12 text-start">
         <label class="form-label">Nome da Marca *</label>
@@ -34,10 +37,12 @@
 
     <div class="row">
       <div class="col-md-12 text-start">
-        <label class="form-label">Data cadastro *</label>
-        <input type="date" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="marca.cadastro">
+        <label class="form-label">Data cadastro*</label>
+        <input type="datetime" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="marca.cadastro">
       </div>
     </div>
+
+    
 
     <div class="row">
       <div class="col-md-3 offset-md-6"> 

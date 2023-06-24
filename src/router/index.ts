@@ -30,11 +30,11 @@ const routes: Array<RouteRecordRaw> = [
       ),
     children: [
       {
-        path: "/marca/formulario/editar",
+        path: "/marca/editar",
         name: "marca-formulario-editar-view",
         component: () =>
           import(
-            /* webpackChunkName: "about" */ "../views/Marca/MarcaEditarView.vue"
+            /* webpackChunkName: "about" */ "../views/Marca/MarcaCadastroView.vue"
           ),
       },
       {
@@ -47,6 +47,109 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
+ 
+
+
+
+
+
+
+
+
+
+   {
+    path: "/modelo/lista",
+    name: "modelo-lista-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Modelo/ModeloListaView.vue"
+      ),
+  },
+  {
+    path: "/modelo/formulario",
+    name: "modelo-formulario-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Modelo/ModeloCadastroView.vue"
+      ),
+    children: [
+      {
+        path: "/modelo/editar",
+        name: "modelo-formulario-editar-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Modelo/ModeloCadastroView.vue"
+          ),
+      },
+      {
+        path: "/modelo/formulario",
+        name: "modelo-formulario-excluir-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Modelo/ModeloCadastroView.vue"
+          ),
+      },
+    ],
+  },
+
+
+
+
+
+
+ {
+    path: "/condutor/lista",
+    name: "condutor-lista-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Condutor/CondutorListaView.vue"
+      ),
+  },
+  {
+    path: "/condutor/formulario",
+    name: "condutor-formulario-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Condutor/CondutorCadastroView.vue"
+      ),
+    children: [
+      {
+        path: "/condutor/editar",
+        name: "condutor-formulario-editar-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Condutor/CondutorCadastroView.vue"
+          ),
+      },
+      {
+        path: "/condutor/formulario",
+        name: "condutor-formulario-excluir-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Condutor/CondutorCadastroView.vue"
+          ),
+      },
+    ],
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ];
 
 const router = createRouter({

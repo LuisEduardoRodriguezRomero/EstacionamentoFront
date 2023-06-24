@@ -1,6 +1,6 @@
 import { AbstractEntity } from "./abstract-entity";
 
-export class Condutor extends AbstractEntity {
+export class CondutorModel extends AbstractEntity {
     nome !: string;
 
     cpf !: string;

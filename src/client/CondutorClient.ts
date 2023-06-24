@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { Condutor } from "@/model/CondutorModel";
+import { CondutorModel } from "@/model/CondutorModel";
 
 export class CondutorClient {
   private axiosClient: AxiosInstance;
@@ -11,31 +11,34 @@ export class CondutorClient {
     });
   }
 
-  public async findById(id: number): Promise<Condutor> {
+  public async findById(id: number): Promise<CondutorModel> {
     try {
-      return (await this.axiosClient.get<Condutor>(`/condutor?id=${id}`)).data;
+      return (await this.axiosClient.get<CondutorModel>(`/condutor?id=${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async findAll(): Promise<Condutor[]> {
+  public async findAllCondutores(): Promise<CondutorModel[]> {
     try {
-      return (await this.axiosClient.get<Condutor[]>(`/condutor/lista`)).data;
+      const response = await this.axiosClient.get<CondutorModel[]>(`/condutor`);
+      const data = response.data;
+      console.log(data);
+      return data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async findAtivo(): Promise<Condutor[]> {
+  public async findAtivo(): Promise<CondutorModel[]> {
     try {
-      return (await this.axiosClient.get<Condutor[]>(`/condutor/ativos`)).data;
+      return (await this.axiosClient.get<CondutorModel[]>(`/condutor/ativos`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async cadastrar(condutor: Condutor): Promise<void> {
+  public async cadastrar(condutor: CondutorModel): Promise<void> {
     try {
       return (await this.axiosClient.post(`/condutor`, condutor)).data;
     } catch (error: any) {
@@ -43,7 +46,7 @@ export class CondutorClient {
     }
   }
 
-  public async editar(id: number, condutor: Condutor): Promise<void> {
+  public async editar(id: number, condutor: CondutorModel): Promise<void> {
     try {
       return (await this.axiosClient.put(`/condutor?id=${id}`, condutor)).data;
     } catch (error: any) {
@@ -59,3 +62,6 @@ export class CondutorClient {
     }
   }
 }
+
+
+export default new CondutorClient();

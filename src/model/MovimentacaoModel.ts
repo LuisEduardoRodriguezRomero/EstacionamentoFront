@@ -1,6 +1,6 @@
 import { AbstractEntity } from "./abstract-entity";
 import { Veiculo } from "./VeiculoModel";
-import { Condutor } from "./CondutorModel";
+import { CondutorModel } from "./CondutorModel";
 
 export class Movimentacao extends AbstractEntity {
   entrada!: Date;
@@ -15,7 +15,7 @@ export class Movimentacao extends AbstractEntity {
 
   veiculo!: Veiculo;
 
-  condutor!: Condutor;
+  condutor!: CondutorModel;
 
   valor!: number;
 
