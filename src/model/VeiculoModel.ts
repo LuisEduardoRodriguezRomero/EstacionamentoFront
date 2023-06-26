@@ -3,12 +3,12 @@ import { Cor } from "./CorModel";
 import { Tipo } from "./TipoModel";
 import { ModeloModel } from "./ModeloModel";
 
-export class Veiculo extends AbstractEntity {
+export class VeiculoModel extends AbstractEntity {
   placa!: string;
 
   cor!: Cor;
 
-  modelo!: ModeloModel;
+  modeloId!: ModeloModel;
 
   tipo!: Tipo;
 

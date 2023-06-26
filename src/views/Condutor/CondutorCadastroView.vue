@@ -37,23 +37,17 @@
 
     <div class="row">
       <div class="col-md-12 text-start">
-        <label class="form-label">Marca do modelo*</label>
-        <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="condutor.CPF">
+        <label class="form-label">CPF*</label>
+        <input type="datetime" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="condutor.cpf">
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12 text-start">
-        <label class="form-label">Data cadastro*</label>
-        <input type="datetime" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="condutor.cadastro">
-      </div>
-    </div>
 
 
     <div class="row">
       <div class="col-md-12 text-start">
         <label class="form-label">Telefone*</label>
-        <input type="datetime" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="condutor.Telefone">
+        <input type="datetime" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="condutor.telefone">
       </div>
     </div>
 
@@ -67,7 +61,6 @@
           </router-link>
         </div>
       </div>
-
 
 
       <div class="col-md-3 "> 
@@ -84,14 +77,13 @@
           </button>
 
 
-
           <button v-if="this.form === 'excluir'" type="button" 
               class="btn btn-danger" @click="onClickExcluir()">
             Excluir 
           </button>
 
 
-
+          
         </div>
       </div>
     </div>
@@ -101,9 +93,8 @@
 
 <script lang="ts">
 
-import ModeloClient from '@/client/ModeloClient';
+import CondutorClient from '@/client/CondutorClient';
 import { CondutorModel } from '@/model/CondutorModel';
-
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -114,7 +105,6 @@ export default defineComponent({
       mensagem: {
         ativo: false as boolean,
         titulo: "" as string,
-        marca: "" as string,
         mensagem: "" as string,
         css: "" as string
       }

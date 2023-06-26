@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { Veiculo } from "@/model/VeiculoModel";
+import { VeiculoModel } from "@/model/VeiculoModel";
 
 export class VeiculoClient {
   private axiosClient: AxiosInstance;
@@ -11,31 +11,31 @@ export class VeiculoClient {
     });
   }
 
-  public async findById(id: number): Promise<Veiculo> {
+  public async findById(id: number): Promise<VeiculoModel> {
     try {
-      return (await this.axiosClient.get<Veiculo>(`/veiculo?id=${id}`)).data;
+      return (await this.axiosClient.get<VeiculoModel>(`/veiculo?id=${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async findAll(): Promise<Veiculo[]> {
+  public async findAllVeiculos(): Promise<VeiculoModel[]> {
     try {
-      return (await this.axiosClient.get<Veiculo[]>(`/veiculo`)).data;
+      return (await this.axiosClient.get<VeiculoModel[]>(`/veiculo`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async findAtivo(): Promise<Veiculo[]> {
+  public async findAtivo(): Promise<VeiculoModel[]> {
     try {
-      return (await this.axiosClient.get<Veiculo[]>(`/veiculo/ativos`)).data;
+      return (await this.axiosClient.get<VeiculoModel[]>(`/veiculo/ativos`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async cadastrar(veiculo: Veiculo): Promise<void> {
+  public async cadastrar(veiculo: VeiculoModel): Promise<void> {
     try {
       return (await this.axiosClient.post(`/veiculo`, veiculo)).data;
     } catch (error: any) {
@@ -43,7 +43,7 @@ export class VeiculoClient {
     }
   }
 
-  public async editar(id: number, veiculo: Veiculo): Promise<void> {
+  public async editar(id: number, veiculo: VeiculoModel): Promise<void> {
     try {
       return (await this.axiosClient.put(`/veiculo?id=${id}`, veiculo)).data;
     } catch (error: any) {

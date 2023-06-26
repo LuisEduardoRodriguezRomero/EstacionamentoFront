@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { Movimentacao } from "@/model/MovimentacaoModel";
+import { MovimentacaoModel } from "@/model/MovimentacaoModel";
 
 export class MovimentacaoClient{
     private axiosClient : AxiosInstance;
@@ -11,34 +11,34 @@ export class MovimentacaoClient{
         });
     }
 
-    public async findById(id : number) : Promise<Movimentacao> {
+    public async findById(id : number) : Promise<MovimentacaoModel> {
         try{
-            return (await this.axiosClient.get<Movimentacao>(`/movimentacao?id=${id}`)).data;
+            return (await this.axiosClient.get<MovimentacaoModel>(`/movimentacao?id=${id}`)).data;
         }
         catch(error : any){
             return Promise.reject(error.response);
         }
     }
 
-    public async findAll() : Promise<Movimentacao[]> {
+    public async findAllMovimentacoes() : Promise<MovimentacaoModel[]> {
         try{
-            return (await this.axiosClient.get<Movimentacao[]>(`/movimentacao/lista`)).data;
+            return (await this.axiosClient.get<MovimentacaoModel[]>(`/movimentacao`)).data;
         }
         catch(error : any){
             return Promise.reject(error.response);
         }
     }
 
-    public async findAtivo() : Promise<Movimentacao[]> {
+    public async findAtivo() : Promise<MovimentacaoModel[]> {
         try{
-            return (await this.axiosClient.get<Movimentacao[]>(`/movimentacao/ativos`)).data;
+            return (await this.axiosClient.get<MovimentacaoModel[]>(`/movimentacao/ativos`)).data;
         }
         catch(error : any){
             return Promise.reject(error.response);
         }
     }
 
-    public async cadastrar(movimentacao : Movimentacao) : Promise<void> {
+    public async cadastrar(movimentacao : MovimentacaoModel) : Promise<void> {
         try{
             return (await this.axiosClient.post(`/movimentacao`, movimentacao)).data;
         }
@@ -47,7 +47,7 @@ export class MovimentacaoClient{
         }
     }
 
-    public async editar(id : number, movimentacao : Movimentacao) : Promise<void> {
+    public async editar(id : number, movimentacao : MovimentacaoModel) : Promise<void> {
         try{
             return (await this.axiosClient.put(`/movimentacao?id=${id}`, movimentacao)).data;
         }
@@ -65,3 +65,6 @@ export class MovimentacaoClient{
         }
     }
 }
+
+
+export default new MovimentacaoClient();

@@ -25,7 +25,7 @@
         </li>
 
          <li class="nav-item">
-         <router-link class="nav-link" to="/listar-movimentacoes"><i class="bi bi-alarm text-light"> Movimentacoes</i></router-link>  
+         <router-link class="nav-link" to="/movimentacao/lista"><i class="bi bi-alarm text-light"> Movimentacoes</i></router-link>  
         </li>
       
         <li class="nav-item">

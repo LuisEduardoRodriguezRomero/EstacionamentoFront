@@ -51,8 +51,9 @@ export default defineComponent({
         <table class="table">
           <thead class="table-secondary" >
             <tr>
-              <th scope="col">CPF</th>
+            <th scope="col">Id</th>
               <th scope="col">Ativo</th>
+                  <th scope="col">CPF</th>
               <th scope="col" class="text-start">Nome</th>
               <th scope="col">Telefone</th>
               <th scope="col">Opção</th>
@@ -66,8 +67,9 @@ export default defineComponent({
                 <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
                 <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
               </th>
+               <th class="col-md-2">{{ item.cpf }}</th>
               <th class="text-start">{{ item.nome }}</th>
-              <th class="text-start">{{ item.Telefone }}</th>
+              <th class="text-start">{{ item.telefone }}</th>
               <th class="col-md-2">
                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                   <router-link type="button" class="btn btn-sm btn-warning" 

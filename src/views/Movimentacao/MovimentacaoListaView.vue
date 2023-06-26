@@ -1,112 +1,97 @@
-<script lang="ts"></script>
+<script lang="ts">
+
+import { defineComponent } from 'vue';
+
+import MovimentacaoClient from '@/client/MovimentacaoClient';
+import {MovimentacaoModel } from '@/model/MovimentacaoModel';
+
+export default defineComponent({
+  name: 'MovimentacaoLista',
+  data() {
+    return {
+        movimentacoesList: new Array<MovimentacaoModel>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+
+    findAll() {
+   MovimentacaoClient.findAllMovimentacoes()
+        .then(sucess => {
+          this.movimentacoesList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+});
+
+</script>
 
 <template>
-  <div class="container text-center mb-3 mt-5">
-    <div class="row justify-content-md-center">
-      <div class="col col-lg-2">
-        <button type="button" class="btn btn-outline-info">Listar</button>
-      </div>
-      <div class="col-md-auto fs-3 text-light">Movimentacoes</div>
-      <div class="col col-lg-3">
-        <router-link class="nav-link" to="/cadastrar-movimentacao"><button type="button" class="btn btn-outline-success" ative>Registrar Entrada</button></router-link>
+
+  <div class="container" style="margin-top: 10px;">
+
+    <div class="row">
+      <div class="col-md-8 text-start"> <p class="fs-3"> Movimentacoes </p> </div>
+      <div class="col-md-3"> 
+        <div class="d-grid gap-2">
+          <router-link type="button" class="btn btn-success" 
+            to="/movimentacao/formulario">Registrar entrada
+          </router-link>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container">
     <div class="row">
-      <div class="col-sm-10 offset-sm-1">
-        <table
-          class="table table-hover table-dark border border-info table-sm "
-        >
-          <thead class="text-sm">
+      <div class="col-md-12">  
+        <table class="table">
+          <thead class="table-secondary" >
             <tr>
-              <th scope="col">Placa</th>
-              <th scope="col">Condutor</th>
-              <th scope="col">Hora Entrada</th>
-              <th scope="col">Hora Saida</th>
-              <th scope="col">Opcoes</th>
+              <th scope="col">ID</th>
+              <th scope="col" class="text-start">Placa</th>
+               <th scope="col">Condutor</th>
+                <th scope="col">Entrada</th>
+                 <th scope="col">Saida</th>
+              <th scope="col">Opção</th>
             </tr>
-          </thead>
+          </thead>  
           <tbody class="table-group-divider">
-            <tr class="table-row">
-              <th scope="row">AAA 0001</th>
-              <td>Condutor 1</td>
-              <td>DD-MM-YYYY HH:MM:SS</td>
-              <td>DD-MM-YYYY HH:MM:SS</td>
-              <td>
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Small button group"
-                >
-                  <button type="button" class="btn btn-outline-primary">
+            
+            <tr v-for="item in movimentacoesList" :key="item.id">
+              <th class="col-md-1">{{ item.id }}</th>
+              <th class="text-start">{{ item.veiculo.placa }}</th>
+              <th class="text-start">{{ item.condutor.nome}}</th>
+              <th class="text-start">{{ item.entrada }}</th>
+              <th class="text-start">{{ item.saida }}</th>
+
+              <th class="col-md-2">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                  <router-link type="button" class="btn btn-sm btn-warning" 
+                      :to="{ name: 'movimentacao-formulario-editar-view', query: { id: item.id, form: 'editar' } } "> 
+                    Editar 
+                  </router-link>
+                  <router-link type="button" class="btn btn-sm btn-danger" 
+                      :to="{ name: 'movimentacao-formulario-excluir-view', query: { id: item.id, form: 'excluir' } } ">
                     Excluir
-                  </button>
-                  <button type="button" class="btn btn-outline-info">
-                    Editar
-                  </button>
-                  <button type="button" class="btn btn-outline-danger">
-                    Ver
-                  </button>
+                  </router-link>
                 </div>
-              </td>
+              </th>
             </tr>
-            <tr>
-              <th scope="row">AAA 0001</th>
-              <td>Condutor 2</td>
-              <td>DD-MM-YYYY HH:MM:SS</td>
-              <td>DD-MM-YYYY HH:MM:SS</td>
-              <td>
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Small button group"
-                >
-                  <button type="button" class="btn btn-outline-primary">
-                    Excluir
-                  </button>
-                  <button type="button" class="btn btn-outline-info">
-                    Editar
-                  </button>
-                  <button type="button" class="btn btn-outline-danger">
-                    Ver
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">AAA 0001</th>
-              <td>Condutor 3</td>
-              <td>DD-MM-YYYY HH:MM:SS</td>
-              <td>DD-MM-YYYY HH:MM:SS</td>
-              <td>
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Small button group"
-                >
-                  <button type="button" class="btn btn-outline-primary">
-                    Excluir
-                  </button>
-                  <button type="button" class="btn btn-outline-info">
-                    Editar
-                  </button>
-                  <button type="button" class="btn btn-outline-danger">
-                    Ver
-                  </button>
-                </div>
-              </td>
-            </tr>
+
           </tbody>
         </table>
       </div>
     </div>
   </div>
+
 </template>
 
 <style scoped>
-.table-row {
-  padding: 0.1rem;
+.table-row{
+padding: 0.1rem;
 }
 </style>

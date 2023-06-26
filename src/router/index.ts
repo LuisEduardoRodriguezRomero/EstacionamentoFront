@@ -147,6 +147,86 @@ const routes: Array<RouteRecordRaw> = [
 
 
 
+ {
+    path: "/veiculo/lista",
+    name: "veiculo-lista-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Veiculo/VeiculoListaView.vue"
+      ),
+  },
+  {
+    path: "/veiculo/formulario",
+    name: "veiculo-formulario-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Veiculo/VeiculoCadastroView.vue"
+      ),
+    children: [
+      {
+        path: "/veiculo/editar",
+        name: "veiculo-formulario-editar-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Veiculo/VeiculoCadastroView.vue"
+          ),
+      },
+      {
+        path: "/veiculo/formulario",
+        name: "veiculo-formulario-excluir-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Veiculo/VeiculoCadastroView.vue"
+          ),
+      },
+    ],
+  },
+
+
+
+
+
+
+  {
+    path: "/movimentacao/lista",
+    name: "movimentacao-lista-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Movimentacao/MovimentacaoListaView.vue"
+      ),
+  },
+  {
+    path: "/movimentacao/formulario",
+    name: "movimentacao-formulario-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Movimentacao/MovimentacaoCadastroView.vue"
+      ),
+    children: [
+      {
+        path: "/movimentacao/editar",
+        name: "movimentacao-formulario-editar-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Movimentacao/MovimentacaoCadastroView.vue"
+          ),
+      },
+      {
+        path: "/movimentacao/formulario",
+        name: "movimentacao-formulario-excluir-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Movimentacao/MovimentacaoCadastroView.vue"
+          ),
+      },
+    ],
+  },
+
+
+
+
+
+
 
 
 
