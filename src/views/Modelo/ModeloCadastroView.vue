@@ -19,12 +19,6 @@
     </div>
 
 
-<div class="row">
-      <div class="col-md-12 text-start">
-        <label class="form-label">id *</label>
-        <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="modelo.id">
-      </div>
-    </div>
 
 
 
@@ -132,9 +126,9 @@ export default defineComponent({
   methods: {
 
     onClickCadastrar(){
-      MOClient.cadastrar(this.marca)
+      ModeloClient.cadastrar(this.modelo)
         .then(sucess => {
-          this.marca = new MarcaModel()
+          this.modelo = new ModeloModel()
           
           this.mensagem.ativo = true;
           this.mensagem.mensagem = "sucess";
@@ -150,9 +144,9 @@ export default defineComponent({
         
     },
     findById(id: number){
-      MarcaClient.findById(id)
+      ModeloClient.findById(id)
         .then(sucess => {
-          this.marca = sucess
+          this.modelo = sucess
         })
         .catch(error => {
           this.mensagem.ativo = true;
@@ -162,9 +156,9 @@ export default defineComponent({
         });
     },
     onClickEditar(){
-      MarcaClient.editar(this.marca.id, this.marca)
+      ModeloClient.editar(this.modelo.id, this.modelo)
         .then(sucess => {
-          this.marca = new MarcaModel()
+          this.modelo = new ModeloModel()
           
           this.mensagem.ativo = true;
           this.mensagem.mensagem = "sucess";
@@ -179,11 +173,11 @@ export default defineComponent({
         });
     },
     onClickExcluir(){
-      MarcaClient.excluir(this.marca.id)
+      ModeloClient.excluir(this.modelo.id)
         .then(sucess => {
-          this.marca = new MarcaModel()
+          this.modelo = new ModeloModel()
           
-          this.$router.push({ name: 'marca-lista-view' });
+          this.$router.push({ name: 'modelo-lista-view' });
         })
         .catch(error => {
           this.mensagem.ativo = true;

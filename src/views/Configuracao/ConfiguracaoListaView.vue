@@ -1,82 +1,97 @@
 <script lang="ts">
 
+import { defineComponent } from 'vue';
+
+import ConfiguracaoClient from '@/client/ConfiguracaoClient';
+import {ConfiguracaoModel } from '@/model/ConfiguracaoModel';
+
+export default defineComponent({
+  name: 'ConfiguracaoLista',
+  data() {
+    return {
+        configuracoesList: new Array<ConfiguracaoModel>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+
+    findAll() {
+   ConfiguracaoClient.findAllConfiguracoes()
+        .then(sucess => {
+          this.configuracoesList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+});
+
 </script>
 
 <template>
-      <div class="container text-center mb-5 mt-5">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <button type="button" class="btn btn-outline-info" >Listar</button>
+
+  <div class="container" style="margin-top: 10px;">
+
+    <div class="row">
+      <div class="col-md-8 text-start"> <p class="fs-3"> Configuracoes </p> </div>
+      <div class="col-md-3"> 
+        <div class="d-grid gap-2">
+          <router-link type="button" class="btn btn-success" 
+            to="/configuracao/formulario">Cadastrar configuracao
+          </router-link>
+        </div>
+      </div>
     </div>
-    <div class="col-md-auto">
-     Veiculos
-    </div>
-    <div class="col col-lg-2">
-    <button type="button" class="btn btn-outline-primary" ative>Cadastrar</button>
+
+    <div class="row">
+      <div class="col-md-12">  
+        <table class="table">
+          <thead class="table-secondary" >
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col" class="text-start">Valor Minuto</th>
+               <th scope="col">Valor Multa Minuto</th>
+               <th scope="col">Vagas Carro</th>
+                <th scope="col">Vagas Moto</th>
+                 <th scope="col">Vagas Van</th>
+              <th scope="col">Opcoes</th>
+            </tr>
+          </thead>  
+          <tbody class="table-group-divider">
+            
+            <tr v-for="item in configuracoesList" :key="item.id">
+              <th class="col-md-1">{{ item.id}}</th>
+              <th class="text-start">{{ item.valorHora}}</th>
+               <th class="text-start">{{ item.valorMinutoHora }}</th>
+              <th class="text-start">{{ item.vagasCarro}}</th>
+              <th class="text-start">{{ item.vagasMoto}}</th>
+              <th class="text-start">{{ item.vagasVan}}</th>
+
+
+
+              <th class="col-md-2">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                  <router-link type="button" class="btn btn-sm btn-warning" 
+                      :to="{ name: 'movimentacao-formulario-editar-view', query: { id: item.id, form: 'editar' } } "> 
+                    Editar 
+                  </router-link>
+                  <router-link type="button" class="btn btn-sm btn-danger" 
+                      :to="{ name: 'movimentacao-formulario-excluir-view', query: { id: item.id, form: 'excluir' } } ">
+                    Excluir
+                  </router-link>
+                </div>
+              </th>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-
-<div class="row">
-  <div class="col-sm-10 offset-sm-1">
-    <table class="table table-hover table-dark border border-info table-sm ">
-  <thead class="text-sm">
-    <tr>
-      <th scope="col" >Placa</th>
-      <th scope="col">Condutor</th>
-      <th scope="col">Modelo</th>
-      <th scope="col">Cor</th>
-      <th scope="col">Opcoes</th>
-    </tr>
-  </thead>
-  <tbody class="table-group-divider">
-    <tr class="table-row">
-      <th scope="row">AAA 0001</th>
-      <td>Condutor 1 </td>
-      <td>Mobi</td>
-      <td>Azul</td>
-     <td> 
-      <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-  <button type="button" class="btn btn-outline-primary">Excluir</button>
-  <button type="button" class="btn btn-outline-info">Editar</button>
-  <button type="button" class="btn btn-outline-danger">Ver</button>
-</div>
-</td>
-    </tr>
-    <tr>
-      <th scope="row">AAA 0001</th>
-      <td>Condutor 2</td>
-      <td>Ka</td>
-      <td>Preto</td>
-      <td> 
-      <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-  <button type="button" class="btn btn-outline-primary">Excluir</button>
-  <button type="button" class="btn btn-outline-info">Editar</button>
-  <button type="button" class="btn btn-outline-danger">Ver</button>
-</div>
-</td>
-    </tr>
-    <tr>
-      <th scope="row">AAA 0001</th>
-      <td >Condutor 3</td>
-      <td>HB20</td>
-      <td>Verde</td>
-      <td> 
-      <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-  <button type="button" class="btn btn-outline-primary">Excluir</button>
-  <button type="button" class="btn btn-outline-info">Editar</button>
-  <button type="button" class="btn btn-outline-danger">Ver</button>
-</div>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-    </div>
-  </div>
-</div>
 </template>
 
 <style scoped>

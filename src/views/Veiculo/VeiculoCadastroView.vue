@@ -19,13 +19,6 @@
     </div>
 
 
-<div class="row">
-      <div class="col-md-12 text-start">
-        <label class="form-label">id *</label>
-        <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="veiculo.id">
-      </div>
-    </div>
-
 
     <div class="row">
       <div class="col-md-12 text-start">
@@ -167,7 +160,7 @@ export default defineComponent({
     findById(id: number){
       VeiculoClient.findById(id)
         .then(sucess => {
-          this.marca = sucess
+          this.veiculo = sucess
         })
         .catch(error => {
           this.mensagem.ativo = true;

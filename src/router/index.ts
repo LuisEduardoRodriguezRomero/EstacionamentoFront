@@ -47,17 +47,8 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
- 
 
-
-
-
-
-
-
-
-
-   {
+  {
     path: "/modelo/lista",
     name: "modelo-lista-view",
     component: () =>
@@ -92,12 +83,7 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
 
-
-
-
-
-
- {
+  {
     path: "/condutor/lista",
     name: "condutor-lista-view",
     component: () =>
@@ -132,22 +118,7 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- {
+  {
     path: "/veiculo/lista",
     name: "veiculo-lista-view",
     component: () =>
@@ -181,11 +152,6 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
-
-
-
-
-
 
   {
     path: "/movimentacao/lista",
@@ -222,14 +188,40 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
 
-
-
-
-
-
-
-
-
+  {
+    path: "/configuracao/lista",
+    name: "configuracao-lista-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Configuracao/ConfiguracaoListaView.vue"
+      ),
+  },
+  {
+    path: "/configuracao/formulario",
+    name: "configuracao-formulario-view",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Configuracao/ConfiguracaoCadastroView.vue"
+      ),
+    children: [
+      {
+        path: "/configuracao/editar",
+        name: "configuracao-formulario-editar-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Configuracao/ConfiguracaoCadastroView.vue"
+          ),
+      },
+      {
+        path: "/configuracao/formulario",
+        name: "configuracao-formulario-excluir-view",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/Configuracao/ConfiguracaoCadastroView.vue"
+          ),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

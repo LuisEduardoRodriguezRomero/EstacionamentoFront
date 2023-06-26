@@ -3,7 +3,7 @@
   <div class="container" style="background: ;">
 
     <div class="row">
-      <div class="col-md-10 text-start"> <p class="fs-3"> Cadastrar de Marca </p> </div>
+      <div class="col-md-10 text-start"> <p class="fs-3"> Cadastrar Configuracoes</p> </div>
       <div class="col-md-2"> </div>
     </div>
 
@@ -23,42 +23,75 @@
 
     <div class="row">
       <div class="col-md-12 text-start">
-        <label class="form-label">Nome da Marca *</label>
-        <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="marca.nome">
+        <label class="form-label">Valor Minutor*</label>
+        <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.valor">
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12 text-start">
-        <label class="form-label">Data cadastro*</label>
-        <input type="datetime" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="marca.cadastro">
+        <label class="form-label">Valor Minuto Multa*</label>
+        <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.minuto">
       </div>
     </div>
 
-    
+    <div class="row">
+      <div class="col-md-12 text-start">
+        <label class="form-label">Vagas Carro*</label>
+        <input type="datetime" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.vagascarro">
+      </div>
+    </div>
+
+      <div class="row">
+      <div class="col-md-12 text-start">
+        <label class="form-label">Vagas Moto*</label>
+        <input type="datetime" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.vagasmoto">
+      </div>
+
+
+    </div>
+      <div class="row">
+      <div class="col-md-12 text-start">
+        <label class="form-label">Vagas Van*</label>
+        <input type="datetime" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="configuracao.vagasvan">
+      </div>
+    </div>
+     
+
 
     <div class="row">
       <div class="col-md-3 offset-md-6"> 
         <div class="d-grid gap-2">
           <router-link type="button" class="btn btn-info" 
-            to="/marca/lista">Voltar
+            to="/movimentacao/lista">Voltar
           </router-link>
         </div>
       </div>
+
+
+
       <div class="col-md-3 "> 
         <div class="d-grid gap-2">
           <button v-if="this.form === undefined" type="button" 
               class="btn btn-success" @click="onClickCadastrar()">
-            Cadastrar 
+            Registrar entrada 
           </button>
+
+
           <button v-if="this.form === 'editar'" type="button" 
               class="btn btn-warning" @click="onClickEditar()">
-            Editar Marca
+            Editar Movimentacao
           </button>
+
+
+
           <button v-if="this.form === 'excluir'" type="button" 
               class="btn btn-danger" @click="onClickExcluir()">
             Excluir 
           </button>
+
+
+
         </div>
       </div>
     </div>
@@ -68,18 +101,21 @@
 
 <script lang="ts">
 
-import MarcaClient from '@/client/MarcaClient';
-import { MarcaModel } from '@/model/MarcaModel';
+import ConfiguracaoClient from '@/client/ConfiguracaoClient';
+import { ConfiguracaoModel } from '@/model/ConfiguracaoModel';
+
+
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'MarcaFormulario',
+  name: 'ConfiguracaoFormulario',
   data() {
     return { 
-      marca: new MarcaModel(),
+      configuracao: new ConfiguracaoModel(),
       mensagem: {
         ativo: false as boolean,
         titulo: "" as string,
+        marca: "" as string,
         mensagem: "" as string,
         css: "" as string
       }
@@ -104,9 +140,9 @@ export default defineComponent({
   methods: {
 
     onClickCadastrar(){
-      MarcaClient.cadastrar(this.marca)
+      ConfiguracaoClient.cadastrar(this.configuracao)
         .then(sucess => {
-          this.marca = new MarcaModel()
+          this.configuracao = new ConfiguracaoModel()
           
           this.mensagem.ativo = true;
           this.mensagem.mensagem = "sucess";
@@ -122,9 +158,9 @@ export default defineComponent({
         
     },
     findById(id: number){
-      MarcaClient.findById(id)
+      ConfiguracaoClient.findById(id)
         .then(sucess => {
-          this.marca = sucess
+          this.configuracao = sucess
         })
         .catch(error => {
           this.mensagem.ativo = true;
@@ -134,9 +170,9 @@ export default defineComponent({
         });
     },
     onClickEditar(){
-      MarcaClient.editar(this.marca.id, this.marca)
+     ConfiguracaoClient.editar(this.configuracao.id, this.configuracao)
         .then(sucess => {
-          this.marca = new MarcaModel()
+          this.configuracao = new ConfiguracaoModel()
           
           this.mensagem.ativo = true;
           this.mensagem.mensagem = "sucess";
@@ -151,11 +187,11 @@ export default defineComponent({
         });
     },
     onClickExcluir(){
-      MarcaClient.excluir(this.marca.id)
+      ConfiguracaoClient.excluir(this.configuracao.id)
         .then(sucess => {
-          this.marca = new MarcaModel()
+          this.configuracao = new ConfiguracaooModel()
           
-          this.$router.push({ name: 'marca-lista-view' });
+          this.$router.push({ name: 'configuracao-lista-view' });
         })
         .catch(error => {
           this.mensagem.ativo = true;

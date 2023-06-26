@@ -1,26 +1,28 @@
 import { AbstractEntity } from "./abstract-entity";
 
-export class Configuracao extends AbstractEntity {
-    vagasVan !: number;
+export class ConfiguracaoModel extends AbstractEntity {
+  vagasVan!: number;
 
-    vagasCarro !: number;
+  vagasCarro!: number;
 
-    vagasMoto !: number;
-    
-    horarioFecha !: Date;
+  vagasMoto!: number;
 
-    valorMinuto !: number;
+  horarioFecha!: Date;
 
-    valorMultaMinuto !: number;
+  valorMinuto!: number;
 
-    tempoParaDesconto !: number;
+  valorMultaMinuto!: number;
 
-    tempoDesconto !: number;
+  tempoParaDesconto!: number;
 
-    gerarDesconto !: boolean;
+  tempoDesconto!: number;
 
-    constructor() {
-        super()
-        this.ativo = true
-    }
+  gerarDesconto!: boolean;
+
+  cadastro: Date = new Date();
+
+  constructor() {
+    super();
+    this.ativo = true;
+  }
 }

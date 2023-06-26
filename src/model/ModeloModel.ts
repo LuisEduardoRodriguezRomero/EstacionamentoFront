@@ -6,6 +6,8 @@ export class ModeloModel extends AbstractEntity {
 
   marca!: MarcaModel;
 
+  cadastro: Date = new Date();
+
   constructor() {
     super();
     this.ativo = true;

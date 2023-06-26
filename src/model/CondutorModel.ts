@@ -1,18 +1,20 @@
 import { AbstractEntity } from "./abstract-entity";
 
 export class CondutorModel extends AbstractEntity {
-    nome !: string;
+  nome!: string;
 
-    cpf !: string;
+  cpf!: string;
 
-    telefone !: string;
-    
-    tempoPago !: number;
+  telefone!: string;
 
-    tempoDesconto !: number;
+  tempoPago!: number;
 
-    constructor() {
-        super()
-        this.ativo = true
-    }
+  tempoDesconto!: number;
+
+  cadastro: Date = new Date();
+
+  constructor() {
+    super();
+    this.ativo = true;
+  }
 }

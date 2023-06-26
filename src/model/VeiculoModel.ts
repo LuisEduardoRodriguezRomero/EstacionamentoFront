@@ -14,6 +14,8 @@ export class VeiculoModel extends AbstractEntity {
 
   ano!: number;
 
+  cadastro: Date = new Date();
+
   constructor() {
     super();
     this.ativo = true;

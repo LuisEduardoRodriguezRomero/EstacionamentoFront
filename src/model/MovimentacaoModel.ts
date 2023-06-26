@@ -3,7 +3,7 @@ import { VeiculoModel } from "./VeiculoModel";
 import { CondutorModel } from "./CondutorModel";
 
 export class MovimentacaoModel extends AbstractEntity {
-  entrada!: Date;
+  entrada: Date = new Date();;
 
   saida!: Date;
 

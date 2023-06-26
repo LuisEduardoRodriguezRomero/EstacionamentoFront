@@ -29,7 +29,7 @@
         </li>
       
         <li class="nav-item">
-          <router-link class="nav-link" to="/listar-configuracoes"> <i class="bi bi-gear text-light"> Configuracoes</i></router-link>  
+          <router-link class="nav-link" to="/configuracao/lista"> <i class="bi bi-gear text-light"> Configuracoes</i></router-link>  
         </li>
        
         

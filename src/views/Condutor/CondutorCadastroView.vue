@@ -19,12 +19,7 @@
     </div>
 
 
-<div class="row">
-      <div class="col-md-12 text-start">
-        <label class="form-label">id *</label>
-        <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control" v-model="condutor.id">
-      </div>
-    </div>
+
 
 
 
